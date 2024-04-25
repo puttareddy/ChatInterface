@@ -45,7 +45,7 @@ def main():
         st.session_state.messages.append({"role": "user", "content": prompt})
         st.chat_message("user").write(prompt)
         try:
-            response = requests.post('https://3902-2600-1702-56e1-b120-d47a-1c22-8126-9b94.ngrok-free.app/question', json={'question': str(prompt)}, headers={'Content-Type': 'application/json'})
+            response = requests.post('https://3902-2600-1702-56e1-b120-d47a-1c22-8126-9b94.ngrok-free.app/question', json={'question': str(prompt)}, headers={'Content-Type': 'application/json', 'ngrok-skip-browser-warning':'test'})
             json = response.json()
             last_answer = json["last_answer"]
             # last_answer = get_encoded_url_string(stringWithUrl=last_answer)
